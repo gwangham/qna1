@@ -10,8 +10,33 @@
     <div class="container">
         <h1>교과목 질문 게시판</h1>
         
+        <!-- 로그인/회원가입 폼 -->
+        <div id="authForm" class="auth-form">
+            <div id="loginForm">
+                <h2>로그인</h2>
+                <input type="email" id="loginEmail" placeholder="이메일">
+                <input type="password" id="loginPassword" placeholder="비밀번호">
+                <button onclick="login()">로그인</button>
+                <button onclick="showSignupForm()">회원가입으로 전환</button>
+            </div>
+            
+            <div id="signupForm" style="display: none;">
+                <h2>회원가입</h2>
+                <input type="email" id="signupEmail" placeholder="이메일">
+                <input type="password" id="signupPassword" placeholder="비밀번호">
+                <button onclick="signup()">회원가입</button>
+                <button onclick="showLoginForm()">로그인으로 전환</button>
+            </div>
+        </div>
+
+        <!-- 로그인 상태 표시 및 로그아웃 -->
+        <div id="userStatus" style="display: none;" class="user-status">
+            <span id="userEmail"></span>
+            <button onclick="logout()">로그아웃</button>
+        </div>
+        
         <!-- 질문 작성 폼 -->
-        <div class="question-form">
+        <div id="questionForm" class="question-form">
             <h2>질문하기</h2>
             <select id="subject">
                 <option value="">교과목 선택</option>
@@ -31,6 +56,10 @@
             <div id="questionsList"></div>
         </div>
     </div>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
